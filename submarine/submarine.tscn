@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8r1a4no4h5tm"]
+
+[ext_resource type="Texture2D" uid="uid://bk7kd4stl6lhi" path="res://submarine/sprite_submarine.png" id="1_3kghg"]
+[ext_resource type="Script" path="res://submarine/submarine.gd" id="1_3p7js"]
+[ext_resource type="PackedScene" uid="uid://82dwge226ptr" path="res://submarine/bubble.tscn" id="2_0b6fg"]
+
+[node name="Submarine" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_3p7js")
+bullet = ExtResource("2_0b6fg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3kghg")
+
+[node name="BulletSpawnerMarker" type="Marker2D" parent="."]
+position = Vector2(106, 45)

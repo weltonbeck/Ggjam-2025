@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkycekyy0bm63"]
+
+[ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="1_h5x35"]
+[ext_resource type="Texture2D" uid="uid://ddky3lwkpj8oy" path="res://background/bg_blue.png" id="1_vdsyt"]
+
+[node name="LevelTest" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BgBlue" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(960, 540)
+texture = ExtResource("1_vdsyt")
+
+[node name="Submarine" parent="." instance=ExtResource("1_h5x35")]
+position = Vector2(468, 850)
