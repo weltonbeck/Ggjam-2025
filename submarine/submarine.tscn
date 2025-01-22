@@ -13,4 +13,4 @@ bullet = ExtResource("2_0b6fg")
 texture = ExtResource("1_3kghg")
 
 [node name="BulletSpawnerMarker" type="Marker2D" parent="."]
-position = Vector2(106, 45)
+position = Vector2(105, 45)

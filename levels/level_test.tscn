@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkycekyy0bm63"]
+[gd_scene load_steps=4 format=3 uid="uid://bkycekyy0bm63"]
 
 [ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="1_h5x35"]
 [ext_resource type="Texture2D" uid="uid://ddky3lwkpj8oy" path="res://background/bg_blue.png" id="1_vdsyt"]
-[ext_resource type="Texture2D" uid="uid://c3xy5vrma28fl" path="res://icon.svg" id="3_c5iet"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkmy7"]
-size = Vector2(126, 124)
+[ext_resource type="PackedScene" uid="uid://bah4r5seq7qqb" path="res://holdables/tresure_chest.tscn" id="3_8640l"]
 
 [node name="LevelTest" type="Node2D"]
 
@@ -20,42 +17,5 @@ metadata/_edit_lock_ = true
 [node name="Submarine" parent="." instance=ExtResource("1_h5x35")]
 position = Vector2(468, 850)
 
-[node name="TresureChest" type="Area2D" parent="." groups=["Floatable"]]
-position = Vector2(1470, 781)
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="Sprite2D" parent="TresureChest"]
-texture = ExtResource("3_c5iet")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TresureChest"]
-shape = SubResource("RectangleShape2D_nkmy7")
-
-[node name="TresureChest2" type="Area2D" parent="." groups=["Floatable"]]
-position = Vector2(1771, 944)
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="Sprite2D" parent="TresureChest2"]
-texture = ExtResource("3_c5iet")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TresureChest2"]
-shape = SubResource("RectangleShape2D_nkmy7")
-
-[node name="TresureChest3" type="Area2D" parent="." groups=["Floatable"]]
-position = Vector2(1265, 389)
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="Sprite2D" parent="TresureChest3"]
-texture = ExtResource("3_c5iet")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TresureChest3"]
-shape = SubResource("RectangleShape2D_nkmy7")
-
-[node name="TresureChest4" type="Area2D" parent="." groups=["Floatable"]]
-position = Vector2(928, 687)
-metadata/_edit_group_ = true
-
-[node name="Sprite" type="Sprite2D" parent="TresureChest4"]
-texture = ExtResource("3_c5iet")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TresureChest4"]
-shape = SubResource("RectangleShape2D_nkmy7")
+[node name="TresureChest" parent="." instance=ExtResource("3_8640l")]
+position = Vector2(1342, 763)

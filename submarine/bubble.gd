@@ -3,13 +3,18 @@ extends Area2D
 const MIN_SCALE = 0.25
 const MAX_SCALE = 1.5
 const EXPLODE_SCALE = 2.5
-const MIN_SPEED = 30
-const MAX_SPEED = 200
+const MIN_SPEED = 100
+const MAX_SPEED = 400
+
+var is_active = false
 
 var speed: float = 100.0
 var is_able_to_move = false
-var is_holding_something = false
 var direction: Vector2 = Vector2.RIGHT
+
+var is_holding_something = false
+var holding_object
+
 
 func _ready() -> void:
 	scale = Vector2(MIN_SCALE, MIN_SCALE)
@@ -34,39 +39,52 @@ func start_move() -> void:
 		await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("move") 
 	is_able_to_move = true
+	is_active = true
 
 
 func explode() -> void:
 	is_able_to_move = false
+	
+	if is_holding_something && holding_object && holding_object.has_method("drop"):
+		holding_object.drop()
+	
 	$AnimationPlayer.play("explode")
 	await $AnimationPlayer.animation_finished
 	call_deferred("queue_free")
 
+
+func hold(area:Area2D) -> void:
+	if is_able_to_move && is_holding_something == false && area.has_method("hold") && area.min_bubble_size <= scale.x:
+		is_holding_something = true
+		is_able_to_move = false
+		$AnimationPlayer.play("fusion")
+		var new_position = area.global_position - ($CenterMarker2D.position * scale)
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "global_position",new_position, 0.01)
+		await tween.finished
+		area.hold(self)
+		holding_object = area
+		await get_tree().create_timer(.2).timeout
+		speed = 100
+		direction = Vector2.UP
+		is_able_to_move = true
+	elif area != holding_object:
+		explode()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Bubbles"):
-			if scale.x > area.scale.x and scale.x < EXPLODE_SCALE:
-				print(area.scale / MAX_SCALE)
-				scale += area.scale / MAX_SCALE
-			else:
-				explode()
-
-	elif area.is_in_group("Floatable"):
-		is_holding_something = true
-		is_able_to_move = false
-		speed = 100
-		direction = Vector2.UP
-		area.global_position = $CenterMarker.global_position
-		area.call_deferred("reparent", self)
-		area.set_deferred("monitorable", false)
-		area.scale = Vector2(.8,.8)
-		area.z_index = -1
-		await get_tree().create_timer(.2).timeout
-		is_able_to_move = true
+	if is_active && area.is_in_group("Bubbles"):
+		if scale.x > area.scale.x && scale.x < EXPLODE_SCALE && !is_holding_something :
+			$AnimationPlayer.play("fusion")
+			scale += area.scale / MAX_SCALE
+		else:
+			explode()
+	
+	elif is_active && area.is_in_group("Holdable"):
+		hold(area)
 		
 	else:
 		explode()
