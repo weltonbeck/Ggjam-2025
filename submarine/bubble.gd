@@ -1,7 +1,8 @@
 extends Area2D
 
-const MIN_SCALE = 0.25
-const MAX_SCALE = 1.5
+const MIN_SCALE = 0.5
+const MAX_SCALE = 1.0
+
 const EXPLODE_SCALE = 2.5
 const MIN_SPEED = 100
 const MAX_SPEED = 400
@@ -67,7 +68,7 @@ func explode() -> void:
 
 
 func hold(area:Area2D) -> void:
-	if is_able_to_move && is_holding_something == false && area.has_method("hold") && area.min_bubble_size <= scale.x:
+	if is_able_to_move && !is_holding_something && area.has_method("hold") && area.min_bubble_size <= scale.x:
 		is_holding_something = true
 		is_able_to_move = false
 		$AnimationPlayer.play("fusion")

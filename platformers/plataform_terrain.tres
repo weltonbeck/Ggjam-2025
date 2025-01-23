@@ -1,0 +1,30 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bm7dp2107lvxf"]
+
+[ext_resource type="Texture2D" uid="uid://o7mimoip6ano" path="res://platformers/sprite_chains.png" id="1_gc0t2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23423"]
+texture = ExtResource("1_gc0t2")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-75, -100, 75, -100, 25, 0, 25, 100, -25, 100, -25, 0)
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -100, 25, -100, 25, 100, -25, 100)
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -100, 25, -100, 25, 0, 100, 100, -100, 100, -25, 0)
+0:2/0/terrains_peering_bit/top_side = 0
+
+[resource]
+tile_size = Vector2i(200, 200)
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Chain"
+terrain_set_0/terrain_0/color = Color(0.603708, 0.256586, 0.283187, 1)
+sources/1 = SubResource("TileSetAtlasSource_23423")

@@ -24,7 +24,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qi00v"]
 shader = SubResource("Shader_x3uxk")
 shader_parameter/timeScale = 2.0
-shader_parameter/amplitude = 8.0
+shader_parameter/amplitude = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxt4g"]
 radius = 56.0357
@@ -196,7 +196,7 @@ shape = SubResource("CircleShape2D_jxt4g")
 position = Vector2(110, -10)
 
 [node name="LeftCenterMarker2D" type="Marker2D" parent="."]
-position = Vector2(-145, -10)
+position = Vector2(-140, -10)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 metadata/_edit_lock_ = true

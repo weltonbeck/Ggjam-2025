@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Ggjam-2025"
-run/main_scene="res://levels/level_test.tscn"
+run/main_scene="res://levels/level_title.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://submarine/sprite_submarine.png"
+
+[autoload]
+
+GameManager="*res://singletons/game_manager.tscn"
 
 [display]
 
@@ -21,6 +25,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Holdable=""
 
 [input]
 
@@ -62,6 +70,7 @@ move_right={
 2d_physics/layer_2="bubbles"
 2d_physics/layer_3="Holdable"
 2d_physics/layer_4="Hazard"
+2d_physics/layer_5="Platformer"
 
 [rendering]
 

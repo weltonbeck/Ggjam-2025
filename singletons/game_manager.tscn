@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bajt5wdgn06aj"]
+
+[ext_resource type="Script" path="res://singletons/game_manager.gd" id="1_sp3fu"]
+[ext_resource type="PackedScene" uid="uid://cbcqql2c0g87k" path="res://ui/screen_transition/screen_transition.tscn" id="2_6x0uf"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_sp3fu")
+
+[node name="ScreenTransition" parent="." instance=ExtResource("2_6x0uf")]
