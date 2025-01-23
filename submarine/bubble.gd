@@ -10,6 +10,7 @@ var is_active = false
 
 var speed: float = 100.0
 var is_able_to_move = false
+var face_is_right = true
 var direction: Vector2 = Vector2.RIGHT
 
 var is_holding_something = false
@@ -24,6 +25,17 @@ func _process(delta) -> void:
 	if (is_able_to_move):
 		translate(direction * speed * delta)
 
+func flip(new_face_is_right:bool):
+	face_is_right = new_face_is_right
+	var new_scale =  Vector2(1,1)
+	if !face_is_right:
+		new_scale = Vector2(-1,1)
+	$Content.scale = new_scale
+	if face_is_right :
+		$CollisionShape2D.position.x = 125
+	else:
+		$CollisionShape2D.position.x = -125
+
 
 func increase_scale(mor_scale:float) -> void:
 	if scale.x >= MAX_SCALE:
@@ -34,10 +46,11 @@ func increase_scale(mor_scale:float) -> void:
 		speed = clamp((MAX_SCALE - scale.x) * (MAX_SPEED / MAX_SCALE), MIN_SPEED, MAX_SPEED)
 
 
-func start_move() -> void:
+func start_move(new_direction:Vector2) -> void:
+	direction = new_direction
 	if $AnimationPlayer.is_playing() :
 		await $AnimationPlayer.animation_finished
-	$AnimationPlayer.play("move") 
+	$AnimationPlayer.play("move")
 	is_able_to_move = true
 	is_active = true
 
@@ -58,14 +71,16 @@ func hold(area:Area2D) -> void:
 		is_holding_something = true
 		is_able_to_move = false
 		$AnimationPlayer.play("fusion")
-		var new_position = area.global_position - ($CenterMarker2D.position * scale)
+		var new_position = area.global_position - ($RightCenterMarker2D.position * scale)
+		if !face_is_right:
+			new_position = area.global_position - ($LeftCenterMarker2D.position * scale)
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "global_position",new_position, 0.01)
 		await tween.finished
 		area.hold(self)
 		holding_object = area
 		await get_tree().create_timer(.2).timeout
-		speed = 100
+		speed = 200
 		direction = Vector2.UP
 		is_able_to_move = true
 	elif area != holding_object:

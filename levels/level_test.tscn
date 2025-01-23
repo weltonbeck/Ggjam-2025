@@ -1,21 +1,27 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkycekyy0bm63"]
 
+[ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="1_2bv6o"]
 [ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="1_h5x35"]
-[ext_resource type="Texture2D" uid="uid://ddky3lwkpj8oy" path="res://background/bg_blue.png" id="1_vdsyt"]
 [ext_resource type="PackedScene" uid="uid://bah4r5seq7qqb" path="res://holdables/tresure_chest.tscn" id="3_8640l"]
 
 [node name="LevelTest" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="BgBlue" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(960, 540)
-texture = ExtResource("1_vdsyt")
-metadata/_edit_lock_ = true
+[node name="Background" parent="." instance=ExtResource("1_2bv6o")]
 
 [node name="Submarine" parent="." instance=ExtResource("1_h5x35")]
-position = Vector2(468, 850)
+position = Vector2(925, 578)
+
+[node name="Camera2D" type="Camera2D" parent="Submarine"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+metadata/_edit_lock_ = true
 
 [node name="TresureChest" parent="." instance=ExtResource("3_8640l")]
-position = Vector2(1342, 763)
+position = Vector2(394, 710)
+
+[node name="TresureChest2" parent="." instance=ExtResource("3_8640l")]
+position = Vector2(1436, 725)

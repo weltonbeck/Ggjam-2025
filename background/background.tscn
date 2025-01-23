@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3k5d7y4ay3bh"]
+
+[ext_resource type="Texture2D" uid="uid://dk5eemci4okfo" path="res://background/background_01.png" id="1_msqmi"]
+[ext_resource type="Texture2D" uid="uid://u3ry0oh2keid" path="res://background/background_02.png" id="2_vxaqe"]
+[ext_resource type="Texture2D" uid="uid://buo8100ss2n30" path="res://background/background_03.png" id="3_ao04v"]
+[ext_resource type="Texture2D" uid="uid://cg3ksmakcoyyl" path="res://background/background_04.png" id="4_l1h4a"]
+[ext_resource type="Texture2D" uid="uid://didy71mlsdr7f" path="res://background/background_05.png" id="5_bscga"]
+
+[node name="Background" type="CanvasLayer"]
+layer = 0
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="ParallaxBgBlue" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBgBlue"]
+texture = ExtResource("1_msqmi")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxBgStones" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBgStones"]
+texture = ExtResource("2_vxaqe")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxBgStonesFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBgStonesFront"]
+texture = ExtResource("3_ao04v")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxBgLight" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBgLight"]
+texture = ExtResource("4_l1h4a")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxFront" type="ParallaxBackground" parent="."]
+layer = 10
+offset = Vector2(960, 540)
+transform = Transform2D(1, 0, 0, 1, 960, 540)
+
+[node name="ParallaxBgAlgas" type="ParallaxLayer" parent="ParallaxFront"]
+visibility_layer = 2
+motion_scale = Vector2(0.8, 0)
+motion_offset = Vector2(0, 20)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxFront/ParallaxBgAlgas"]
+texture = ExtResource("5_bscga")
+metadata/_edit_lock_ = true
