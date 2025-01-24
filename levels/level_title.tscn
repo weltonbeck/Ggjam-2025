@@ -87,3 +87,4 @@ text = "Credits
 "
 
 [connection signal="button_down" from="CanvasLayer/ButtonStart" to="." method="_on_button_start_button_down"]
+[connection signal="button_down" from="CanvasLayer/ButtonCredits" to="." method="_on_button_credits_button_down"]

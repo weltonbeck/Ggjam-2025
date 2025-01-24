@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkk5sa11f2q01"]
+
+[ext_resource type="Texture2D" uid="uid://fpvmfd3lsoyh" path="res://ui/buttons/button_normal.png" id="1_qn2lo"]
+[ext_resource type="Script" path="res://levels/level_credits.gd" id="1_rtohu"]
+[ext_resource type="Texture2D" uid="uid://dwlacb7g5p7s3" path="res://ui/buttons/button_pressed.png" id="2_dy14j"]
+[ext_resource type="Texture2D" uid="uid://buu1n812c7epc" path="res://ui/buttons/button_hover.png" id="3_5hwvh"]
+[ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="4_cjwkn"]
+
+[node name="LevelCredits" type="Node2D"]
+script = ExtResource("1_rtohu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -656.0
+offset_top = -320.0
+offset_right = 656.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = " Welton Beck
+   - tomwb1@gmail.com
+ Efraim Marcatto
+   - efraimmarcatto@gmail.com
+ Lucas Fowl
+   - lucasfowl91@gmail.com
+ Jesong
+   - jefferson.adrian@gmail.com"
+
+[node name="ButtonBack" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = 157.0
+offset_right = -92.0
+offset_bottom = 324.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_qn2lo")
+texture_pressed = ExtResource("2_dy14j")
+texture_hover = ExtResource("3_5hwvh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ButtonBack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -35.5
+offset_right = 199.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+text = "Back"
+
+[node name="Background" parent="." instance=ExtResource("4_cjwkn")]
+
+[connection signal="button_down" from="CanvasLayer/ButtonBack" to="." method="_on_button_back_button_down"]

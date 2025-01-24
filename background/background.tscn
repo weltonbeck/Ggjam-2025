@@ -32,10 +32,11 @@ texture = ExtResource("2_vxaqe")
 metadata/_edit_lock_ = true
 
 [node name="ParallaxBgStonesFront" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0)
+motion_scale = Vector2(0.4, 0.1)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBgStonesFront"]
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("3_ao04v")
 metadata/_edit_lock_ = true
 
@@ -54,10 +55,11 @@ transform = Transform2D(1, 0, 0, 1, 960, 540)
 
 [node name="ParallaxBgAlgas" type="ParallaxLayer" parent="ParallaxFront"]
 visibility_layer = 2
-motion_scale = Vector2(0.8, 0)
+motion_scale = Vector2(0.8, 0.2)
 motion_offset = Vector2(0, 20)
 motion_mirroring = Vector2(1920, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxFront/ParallaxBgAlgas"]
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("5_bscga")
 metadata/_edit_lock_ = true
