@@ -60,6 +60,7 @@ collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_q6w7r")
+min_bubble_size = 1.5
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxjt5fkksv4a7"]
+
+[ext_resource type="Script" path="res://pushable/pushable.gd" id="1_wjte0"]
+[ext_resource type="Texture2D" uid="uid://dv2yn6h2h3np6" path="res://pushable/wood/sprite_wood.png" id="2_c0df7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tvht"]
+size = Vector2(590, 184)
+
+[node name="Wood" type="CharacterBody2D" node_paths=PackedStringArray("rotation_element") groups=["Pushable"]]
+collision_layer = 16
+collision_mask = 16
+motion_mode = 1
+up_direction = Vector2(-1, 0)
+script = ExtResource("1_wjte0")
+min_bubble_size = 2.5
+allow_rotation = true
+rotation_element = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+texture = ExtResource("2_c0df7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -100)
+shape = SubResource("RectangleShape2D_3tvht")

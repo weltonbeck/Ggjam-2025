@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5fojefbakcoj"]
+
+[ext_resource type="Texture2D" uid="uid://dpp7m44j0sgjv" path="res://pushable/ball/sprite_ball.png" id="1_51ngj"]
+[ext_resource type="Script" path="res://pushable/pushable.gd" id="1_ei52h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1lwo"]
+radius = 88.0511
+
+[node name="Ball" type="CharacterBody2D" node_paths=PackedStringArray("rotation_element") groups=["Hazard", "Pushable"]]
+collision_layer = 24
+collision_mask = 24
+script = ExtResource("1_ei52h")
+allow_rotation = true
+rotation_element = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.0174533
+texture = ExtResource("1_51ngj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u1lwo")

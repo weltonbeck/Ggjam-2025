@@ -5,24 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://82dwge226ptr" path="res://submarine/bubble.tscn" id="2_0b6fg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_louqo"]
-radius = 84.0
-height = 266.0
+radius = 156.0
+height = 470.0
 
 [node name="Submarine" type="CharacterBody2D"]
-collision_mask = 16
+collision_mask = 24
 motion_mode = 1
 script = ExtResource("1_3p7js")
 bullet = ExtResource("2_0b6fg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_3kghg")
 
 [node name="RightBulletSpawnerMarker" type="Marker2D" parent="."]
-position = Vector2(105, 45)
+position = Vector2(168, 65)
 
 [node name="LeftBulletSpawnerMarker2" type="Marker2D" parent="."]
-position = Vector2(-105, 45)
+position = Vector2(-168, 65)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_louqo")

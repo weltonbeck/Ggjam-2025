@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const WATER_FRICTION = 0.5
 
-@export var speed = 250.0
+@export var speed = 300.0
 @export var bullet: PackedScene
 
 var face_is_right = true
@@ -11,7 +11,7 @@ var instance_bullet
 var able_to_shoot = true
 var shooting_pressed = false
 var shooting_released = false
-var delay_shoot = 0.3
+var delay_shoot = 0.5
 var delay_shoot_buffer = 0
 
 

@@ -29,6 +29,9 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Holdable=""
+Pushable=""
+Hazard=""
+Oyster=""
 
 [input]
 
