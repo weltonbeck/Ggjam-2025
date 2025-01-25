@@ -62,7 +62,7 @@ func shoot(delta) -> void:
 	if shooting_pressed && able_to_shoot && instance_bullet == null:
 			instance_bullet = bullet.instantiate()
 			instance_bullet.global_position = bubble_position
-			get_tree().root.add_child(instance_bullet)
+			get_parent().add_child(instance_bullet)
 			shooting_pressed = false
 			if instance_bullet.has_method("flip"):
 				instance_bullet.flip(face_is_right)

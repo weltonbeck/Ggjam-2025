@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgt1padgok7sx"]
+[gd_scene load_steps=4 format=3 uid="uid://bgt1padgok7sx"]
 
 [ext_resource type="Script" path="res://levels/level_manager.gd" id="1_eltsl"]
 [ext_resource type="PackedScene" uid="uid://cniisgepkceri" path="res://ui/pause_screen/pause_screen.tscn" id="2_dpsy7"]
+[ext_resource type="Texture2D" uid="uid://dk8dmt4o8ewjv" path="res://ui/buttons/Pause.png" id="3_f1g2c"]
 
 [node name="LevelManager" type="Node2D"]
 process_mode = 3
@@ -11,4 +12,22 @@ script = ExtResource("1_eltsl")
 process_mode = 3
 visible = false
 
+[node name="LevelMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PauseButton" type="TextureButton" parent="LevelMenu"]
+modulate = Color(1, 1, 1, 0.541176)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -137.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 229.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 8
+texture_normal = ExtResource("3_f1g2c")
+
 [connection signal="pause" from="." to="PauseScreen" method="handle_pause"]
+[connection signal="pressed" from="LevelMenu/PauseButton" to="." method="set_pause"]
