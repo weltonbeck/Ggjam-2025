@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkycekyy0bm63"]
+[gd_scene load_steps=10 format=4 uid="uid://bkycekyy0bm63"]
 
 [ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="1_2bv6o"]
-[ext_resource type="PackedScene" uid="uid://da7ekyuojnbjn" path="res://levels/level_manager.tscn" id="1_ctlpn"]
+[ext_resource type="PackedScene" uid="uid://bgt1padgok7sx" path="res://levels/level_manager.tscn" id="1_ctlpn"]
 [ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="1_h5x35"]
-[ext_resource type="PackedScene" uid="uid://dkk5sa11f2q01" path="res://levels/level_credits.tscn" id="2_1kcn1"]
 [ext_resource type="TileSet" uid="uid://72ka30jyhohi" path="res://platformers/floor_terrain.tres" id="2_4cup8"]
 [ext_resource type="PackedScene" uid="uid://bah4r5seq7qqb" path="res://holdables/treasure/tresure_chest.tscn" id="3_8640l"]
 [ext_resource type="PackedScene" uid="uid://dns73b1301tmw" path="res://holdables/fish/fish.tscn" id="4_tdhu3"]
@@ -14,8 +13,6 @@
 [node name="LevelTest" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource("1_ctlpn")]
-next_level = ExtResource("2_1kcn1")
-treasures_in_level = 2
 
 [node name="Background" parent="." instance=ExtResource("1_2bv6o")]
 

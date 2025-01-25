@@ -99,7 +99,7 @@ func pushed(move_direction, new_position=global_position):
 		else:
 			tween.tween_property(self, "global_position:x", new_position.x, 0.5)
 		await tween.finished
-		speed = 1000
+		speed = 800
 		velocity = Vector2.ZERO
 		velocity = lerp(velocity, move_direction * speed, WATER_FRICTION)
 		being_pushed = true

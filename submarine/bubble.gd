@@ -121,7 +121,7 @@ func pushed(move_direction, new_position=global_position):
 				tween.tween_property(self, "global_position:x", new_position.x, 0.2)
 			await tween.finished
 			direction = move_direction
-			speed = 1000
+			speed = 800
 		else:
 			explode()
 	else:

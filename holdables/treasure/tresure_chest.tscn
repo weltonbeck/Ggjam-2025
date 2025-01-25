@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bah4r5seq7qqb"]
+[gd_scene load_steps=8 format=3 uid="uid://bah4r5seq7qqb"]
 
 [ext_resource type="Script" path="res://holdables/holdable.gd" id="1_q6w7r"]
 [ext_resource type="Texture2D" uid="uid://dwrra06kdjyg6" path="res://holdables/treasure/sprite_treasure.png" id="2_n2wy8"]
@@ -15,10 +15,6 @@ region = Rect2(250, 0, 250, 200)
 atlas = ExtResource("2_n2wy8")
 region = Rect2(500, 0, 250, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4plci"]
-atlas = ExtResource("2_n2wy8")
-region = Rect2(750, 0, 250, 200)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_45huf"]
 animations = [{
 "frames": [{
@@ -30,9 +26,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ycxwq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4plci")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3882t")

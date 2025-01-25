@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://da7ekyuojnbjn"]
+[gd_scene load_steps=3 format=3 uid="uid://bgt1padgok7sx"]
 
 [ext_resource type="Script" path="res://levels/level_manager.gd" id="1_eltsl"]
+[ext_resource type="PackedScene" uid="uid://cniisgepkceri" path="res://ui/pause_screen/pause_screen.tscn" id="2_dpsy7"]
 
 [node name="LevelManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_eltsl")
+
+[node name="PauseScreen" parent="." instance=ExtResource("2_dpsy7")]
+process_mode = 3
+
+[connection signal="pause" from="." to="PauseScreen" method="handle_pause"]

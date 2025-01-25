@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var transition = $ScreenTransition
 
+
 signal treasure_is_resgated()
 
 func set_treasure_resgate() -> void:
