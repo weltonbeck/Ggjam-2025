@@ -3,7 +3,7 @@ class_name Bubble
 
 const WATER_FRICTION = 0.5
 const MIN_SCALE = 1.0
-const MAX_SCALE = 1.5
+const MAX_SCALE = 2
 
 @export var disappear_effect: PackedScene
 const EXPLODE_SCALE = 2.5

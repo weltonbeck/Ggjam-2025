@@ -23,15 +23,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -250.0
+offset_top = -254.5
+offset_right = 250.0
+offset_bottom = 254.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="ContinueButton" type="TextureButton" parent="Buttons"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("1_ebj2k")
 texture_pressed = ExtResource("3_xrphg")
 texture_hover = ExtResource("2_ax8ew")
@@ -56,6 +58,7 @@ text = "Continue"
 
 [node name="RestartButton" type="TextureButton" parent="Buttons"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("1_ebj2k")
 texture_pressed = ExtResource("3_xrphg")
 texture_hover = ExtResource("2_ax8ew")
@@ -80,6 +83,7 @@ text = "Restart"
 
 [node name="QuitButton" type="TextureButton" parent="Buttons"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("1_ebj2k")
 texture_pressed = ExtResource("3_xrphg")
 texture_hover = ExtResource("2_ax8ew")

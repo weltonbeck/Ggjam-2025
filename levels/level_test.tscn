@@ -22,7 +22,7 @@ tile_set = ExtResource("2_4cup8")
 metadata/_edit_lock_ = true
 
 [node name="Submarine" parent="." instance=ExtResource("1_h5x35")]
-position = Vector2(1572, 1601)
+position = Vector2(1556, 1617)
 
 [node name="Camera2D" type="Camera2D" parent="Submarine"]
 position = Vector2(600, -300)

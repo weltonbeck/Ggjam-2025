@@ -15,7 +15,7 @@ func go_to_level_credits()-> void:
 	await change_scene("res://levels/level_credits.tscn")
 
 func go_to_level_one()-> void:
-	await change_scene("res://levels/level_test.tscn")
+	await change_scene("res://levels/level_one.tscn")
 	
 func change_scene(new_scene: String) -> void:
 	await transition.close()

@@ -34,7 +34,7 @@ texture = ExtResource("2_vxaqe")
 metadata/_edit_lock_ = true
 
 [node name="ParallaxBgStonesFront" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 0)
+motion_scale = Vector2(0.4, 0.05)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxBgStonesFront"]
