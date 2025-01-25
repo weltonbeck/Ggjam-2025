@@ -11,14 +11,15 @@ script = ExtResource("1_3p7js")
 bullet = ExtResource("2_0b6fg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_3kghg")
 
 [node name="RightBulletSpawnerMarker" type="Marker2D" parent="."]
-position = Vector2(168, 65)
+position = Vector2(147, 60)
 
 [node name="LeftBulletSpawnerMarker2" type="Marker2D" parent="."]
-position = Vector2(-168, 65)
+position = Vector2(-147, 60)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(198, 77, 159, 121, 159, 146, 57, 150, -151, 146, -198, 68, -203, -126, 72, -129, 197, 21)
+polygon = PackedVector2Array(177, 62, 157, 98, 120, 128, -140, 128, -177, 65, -179, -111, 24, -112, 63, -98, 84, -76, 91, -55, 128, -35, 151, -14, 173, 16)
+metadata/_edit_lock_ = true

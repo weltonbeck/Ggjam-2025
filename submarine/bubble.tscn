@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://82dwge226ptr"]
+[gd_scene load_steps=16 format=3 uid="uid://82dwge226ptr"]
 
 [ext_resource type="Script" path="res://submarine/bubble.gd" id="1_bnu3k"]
 [ext_resource type="Shader" path="res://submarine/bubble_shader_refraction.gdshader" id="1_r10fj"]
+[ext_resource type="PackedScene" uid="uid://c1wjcwdv7man" path="res://effects/effect_disappears.tscn" id="2_80q5x"]
 [ext_resource type="Texture2D" uid="uid://buu3s6j3du4sb" path="res://submarine/sprite_bubbles.png" id="4_efx70"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnlq7"]
@@ -175,6 +176,7 @@ collision_layer = 2048
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_bnu3k")
+disappear_effect = ExtResource("2_80q5x")
 
 [node name="Sprite" type="Node2D" parent="."]
 

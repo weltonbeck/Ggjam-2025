@@ -5,6 +5,7 @@ const WATER_FRICTION = 0.5
 const MIN_SCALE = 1.0
 const MAX_SCALE = 1.5
 
+@export var disappear_effect: PackedScene
 const EXPLODE_SCALE = 2.5
 
 var is_active = false
@@ -65,12 +66,10 @@ func start_move(new_direction:Vector2) -> void:
 func explode() -> void:
 	is_able_to_move = false
 	
-	if is_holding_something && holding_object && holding_object.has_method("drop"):
-		holding_object.drop()
-	
-	$AnimationPlayer.play("explode")
-	await $AnimationPlayer.animation_finished
-	call_deferred("queue_free")
+	if !is_holding_something || !holding_object || !holding_object.has_method("drop"):
+		$AnimationPlayer.play("explode")
+		await $AnimationPlayer.animation_finished
+		call_deferred("queue_free")
 
 
 func hold(area:Area2D) -> void:
@@ -90,9 +89,20 @@ func hold(area:Area2D) -> void:
 		await get_tree().create_timer(.2).timeout
 		direction = Vector2.UP
 		is_able_to_move = true
+		disappear()
 	elif area != holding_object:
 		explode()
 
+func disappear() -> void:
+	await get_tree().create_timer(.5).timeout
+	if disappear_effect:
+		var instance_disappear_effect = disappear_effect.instantiate()
+		instance_disappear_effect.scale = scale
+		instance_disappear_effect.global_position = $Area2D/CollisionShape2D.global_position
+		get_tree().root.add_child(instance_disappear_effect)
+	GameManager.set_treasure_resgate()
+	call_deferred("queue_free")
+	
 func push(body:Node2D)->void:
 	is_pushing_something = true
 	if is_active && is_instance_valid(body) && body.is_in_group("Pushable") && body.has_method("push"):

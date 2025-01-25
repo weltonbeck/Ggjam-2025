@@ -2,6 +2,11 @@ extends Node2D
 
 @onready var transition = $ScreenTransition
 
+signal treasure_is_resgated()
+
+func set_treasure_resgate() -> void:
+	treasure_is_resgated.emit()
+
 func go_to_title_game()-> void:
 	await change_scene("res://levels/level_title.tscn")
 

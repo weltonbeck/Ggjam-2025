@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bah4r5seq7qqb"]
+[gd_scene load_steps=9 format=3 uid="uid://bah4r5seq7qqb"]
 
 [ext_resource type="Script" path="res://holdables/holdable.gd" id="1_q6w7r"]
 [ext_resource type="Texture2D" uid="uid://dwrra06kdjyg6" path="res://holdables/treasure/sprite_treasure.png" id="2_n2wy8"]
@@ -19,10 +19,6 @@ region = Rect2(500, 0, 250, 200)
 atlas = ExtResource("2_n2wy8")
 region = Rect2(750, 0, 250, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ie1wo"]
-atlas = ExtResource("2_n2wy8")
-region = Rect2(1000, 0, 250, 200)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_45huf"]
 animations = [{
 "frames": [{
@@ -37,9 +33,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4plci")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ie1wo")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3882t")
@@ -67,7 +60,7 @@ metadata/_edit_group_ = true
 position = Vector2(15, -20)
 sprite_frames = SubResource("SpriteFrames_45huf")
 autoplay = "default"
-frame_progress = 0.701372
+frame_progress = 0.00161724
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
