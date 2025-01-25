@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqslxq6be7gc8"]
 
-[ext_resource type="Script" path="res://holdables/holdable.gd" id="1_pfbsm"]
+[ext_resource type="Script" path="res://holdables/fish/fish.gd" id="1_x36yb"]
 [ext_resource type="Texture2D" uid="uid://cejv0h8sjo7jy" path="res://holdables/fish/sprite_fish_big.png" id="2_tn2uj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b30x1"]
@@ -31,9 +31,8 @@ radius = 72.0
 [node name="FishBig" type="Area2D" groups=["Holdable"]]
 collision_layer = 4
 collision_mask = 24
-script = ExtResource("1_pfbsm")
-min_bubble_size = 2.0
-speed = 100
+script = ExtResource("1_x36yb")
+min_bubble_size = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)

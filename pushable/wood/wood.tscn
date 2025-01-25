@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv2yn6h2h3np6" path="res://pushable/wood/sprite_wood.png" id="2_c0df7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tvht"]
-size = Vector2(600, 200)
+size = Vector2(398, 200)
 
 [node name="Wood" type="CharacterBody2D" node_paths=PackedStringArray("rotation_element") groups=["Pushable"]]
 collision_layer = 16
@@ -12,7 +12,8 @@ collision_mask = 16
 motion_mode = 1
 up_direction = Vector2(-1, 0)
 script = ExtResource("1_wjte0")
-min_bubble_size = 2.5
+use_gravity = false
+min_bubble_size = 2.3
 allow_rotation = true
 rotation_element = NodePath("Sprite2D")
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dns73b1301tmw"]
 
-[ext_resource type="Script" path="res://holdables/holdable.gd" id="1_ul022"]
+[ext_resource type="Script" path="res://holdables/fish/fish.gd" id="1_8opse"]
 [ext_resource type="Texture2D" uid="uid://crkfjovnwyd4m" path="res://holdables/fish/sprite_fish.png" id="2_xgy0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dvhe"]
@@ -31,7 +31,7 @@ radius = 47.0956
 [node name="Fish" type="Area2D" groups=["Holdable"]]
 collision_layer = 4
 collision_mask = 24
-script = ExtResource("1_ul022")
+script = ExtResource("1_8opse")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4lhpm")

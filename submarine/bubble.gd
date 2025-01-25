@@ -3,7 +3,7 @@ class_name Bubble
 
 const WATER_FRICTION = 0.5
 const MIN_SCALE = 1.0
-const MAX_SCALE = 2
+const MAX_SCALE = 1.5
 
 @export var disappear_effect: PackedScene
 const EXPLODE_SCALE = 2.5
@@ -130,9 +130,9 @@ func pushed(move_direction, new_position=global_position):
 
 func _on_area_entered(area: Area2D) -> void:
 	if is_active && area.is_in_group("Bubbles"):
-		if (scale.x > area.get_parent().scale.x || (scale.x == area.get_parent().scale.x && get_instance_id() > area.get_parent().get_instance_id()) ) && scale.x < EXPLODE_SCALE && !is_holding_something :
+		if (scale.x > area.get_parent().scale.x || (scale.x == area.get_parent().scale.x && get_instance_id() < area.get_parent().get_instance_id()) ) && scale.x < EXPLODE_SCALE && !is_holding_something :
 			$AnimationPlayer.play("fusion")
-			scale += area.get_parent().scale / MAX_SCALE
+			scale += Vector2(0.5,0.5)
 			if is_pushing_something && pushing_object:
 				push(pushing_object)
 		else:
