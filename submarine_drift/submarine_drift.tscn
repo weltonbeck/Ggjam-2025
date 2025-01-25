@@ -1,24 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://comqi7nshu3qa"]
+[gd_scene load_steps=7 format=3 uid="uid://comqi7nshu3qa"]
 
 [ext_resource type="Script" path="res://submarine_drift/submarine_drift.gd" id="1_mf58c"]
-[ext_resource type="Texture2D" uid="uid://dcery7knxi17u" path="res://submarine_drift/correnteza_1.png" id="2_g5hu7"]
-[ext_resource type="Texture2D" uid="uid://bupm41klshb2" path="res://submarine_drift/correnteza_2.png" id="3_in36y"]
+[ext_resource type="Texture2D" uid="uid://dlh62kx1robbj" path="res://submarine_drift/sprite_submarine_drift.png" id="2_g1vy1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcq7e"]
-size = Vector2(168, 502)
+size = Vector2(200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0yov"]
+atlas = ExtResource("2_g1vy1")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh3cf"]
+atlas = ExtResource("2_g1vy1")
+region = Rect2(200, 0, 200, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_my6e4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_g5hu7")
+"texture": SubResource("AtlasTexture_k0yov")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_in36y")
+"texture": SubResource("AtlasTexture_jh3cf")
 }],
 "loop": true,
-"name": &"default",
-"speed": 4.0
+"name": &"new_animation",
+"speed": 3.0
 }]
 
 [node name="SubmarineDrift" type="Area2D"]
@@ -31,7 +38,9 @@ shape = SubResource("RectangleShape2D_jcq7e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_my6e4")
-autoplay = "default"
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.721462
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

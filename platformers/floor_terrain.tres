@@ -1,8 +1,12 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://72ka30jyhohi"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://72ka30jyhohi"]
 
 [ext_resource type="Texture2D" uid="uid://cjgvxj0v3van0" path="res://platformers/sprite_chains_spike.png" id="1_byckd"]
 [ext_resource type="Texture2D" uid="uid://o7mimoip6ano" path="res://platformers/sprite_chains.png" id="2_2ldvi"]
 [ext_resource type="Texture2D" uid="uid://djqqxcxv8ivml" path="res://platformers/stones.png" id="3_onmob"]
+[ext_resource type="PackedScene" uid="uid://m5fmq47703vd" path="res://submarine_drift/directions/submarine_drift_up.tscn" id="4_bagwc"]
+[ext_resource type="PackedScene" uid="uid://0lrk1rttaos0" path="res://submarine_drift/directions/submarine_drift_right.tscn" id="5_jshcl"]
+[ext_resource type="PackedScene" uid="uid://ckanc1sa54kvh" path="res://submarine_drift/directions/submarine_drift_left.tscn" id="6_4kon7"]
+[ext_resource type="PackedScene" uid="uid://rrk2snmjm1g2" path="res://submarine_drift/directions/submarine_drift_down.tscn" id="7_0r7um"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2bg2o"]
 texture = ExtResource("1_byckd")
@@ -332,6 +336,13 @@ texture_region_size = Vector2i(200, 200)
 7:1/0/terrains_peering_bit/top_side = 0
 7:1/0/terrains_peering_bit/top_right_corner = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_x8y8q"]
+resource_name = "submarine drift up"
+scenes/2/scene = ExtResource("4_bagwc")
+scenes/3/scene = ExtResource("5_jshcl")
+scenes/4/scene = ExtResource("6_4kon7")
+scenes/5/scene = ExtResource("7_0r7um")
+
 [resource]
 tile_size = Vector2i(200, 200)
 physics_layer_0/collision_layer = 16
@@ -347,3 +358,4 @@ terrain_set_1/terrain_0/color = Color(0.364706, 0.92549, 0.901961, 1)
 sources/1 = SubResource("TileSetAtlasSource_23423")
 sources/0 = SubResource("TileSetAtlasSource_2bg2o")
 sources/2 = SubResource("TileSetAtlasSource_gt5du")
+sources/4 = SubResource("TileSetScenesCollectionSource_x8y8q")

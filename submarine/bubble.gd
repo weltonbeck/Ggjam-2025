@@ -37,7 +37,7 @@ func flip(new_face_is_right:bool):
 	var new_scale =  Vector2(1,1)
 	if !face_is_right:
 		new_scale = Vector2(-1,1)
-	$Content.scale = new_scale
+	$Sprite.scale = new_scale
 	if face_is_right :
 		$Area2D/CollisionShape2D.position.x = 125
 		$CollisionShape2D.position.x = 125
@@ -78,6 +78,7 @@ func hold(area:Area2D) -> void:
 		is_holding_something = true
 		is_able_to_move = false
 		$AnimationPlayer.play("fusion")
+		
 		var new_position = area.global_position - ($RightCenterMarker2D.position * scale)
 		if !face_is_right:
 			new_position = area.global_position - ($LeftCenterMarker2D.position * scale)
@@ -98,9 +99,27 @@ func push(body:Node2D)->void:
 		body.push(self)
 		pushing_object = body
 
+func pushed(move_direction, new_position=global_position):
+	new_position.x += ( -125 * scale.x) if face_is_right else 125 * scale.x
+	if move_direction != Vector2.ZERO:
+		if is_active:
+			var tween = create_tween()
+			
+			if move_direction.x != 0:
+				tween.tween_property(self, "global_position:y", new_position.y, 0.2)
+			else:
+				tween.tween_property(self, "global_position:x", new_position.x, 0.2)
+			await tween.finished
+			direction = move_direction
+			speed = 1000
+		else:
+			explode()
+	else:
+		speed = default_speed
+
+
 func _on_area_entered(area: Area2D) -> void:
 	if is_active && area.is_in_group("Bubbles"):
-		print(get_instance_id(), area.get_instance_id())
 		if (scale.x > area.get_parent().scale.x || (scale.x == area.get_parent().scale.x && get_instance_id() > area.get_parent().get_instance_id()) ) && scale.x < EXPLODE_SCALE && !is_holding_something :
 			$AnimationPlayer.play("fusion")
 			scale += area.get_parent().scale / MAX_SCALE
@@ -121,22 +140,3 @@ func _on_body_entered(body: Node2D) -> void:
 		explode()
 	if is_active && body.is_in_group("Pushable"):
 		push(body)
-
-
-func pushed(move_direction, new_position=global_position):
-	new_position.x += ( -125 * scale.x) if face_is_right else 125 * scale.x
-	if move_direction != Vector2.ZERO:
-		if is_active:
-			var tween = create_tween()
-			
-			if move_direction.x != 0:
-				tween.tween_property(self, "global_position:y", new_position.y, 0.2)
-			else:
-				tween.tween_property(self, "global_position:x", new_position.x, 0.2)
-			await tween.finished
-			direction = move_direction
-			speed = 1000
-		else:
-			explode()
-	else:
-		speed = default_speed

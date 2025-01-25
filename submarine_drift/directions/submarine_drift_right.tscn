@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://0lrk1rttaos0"]
+
+[ext_resource type="PackedScene" uid="uid://comqi7nshu3qa" path="res://submarine_drift/submarine_drift.tscn" id="1_4kdet"]
+
+[node name="SubmarineDriftRight" type="Node2D"]
+
+[node name="SubmarineDrift" parent="." instance=ExtResource("1_4kdet")]
+rotation = 1.5708
+stream_direction = Vector2(1, 0)

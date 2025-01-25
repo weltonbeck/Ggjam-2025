@@ -1,10 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy36cefp64o82"]
+[gd_scene load_steps=10 format=3 uid="uid://cy36cefp64o82"]
 
 [ext_resource type="Script" path="res://oyster/oyster.gd" id="1_7sxon"]
 [ext_resource type="Texture2D" uid="uid://duxfabcjd3rnp" path="res://oyster/sprite_oyster.png" id="1_d2xuo"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_usxf2"]
+atlas = ExtResource("1_d2xuo")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smfru"]
+atlas = ExtResource("1_d2xuo")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm0t3"]
+atlas = ExtResource("1_d2xuo")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt7x2"]
+atlas = ExtResource("1_d2xuo")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e4md4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usxf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smfru")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm0t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt7x2")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kgh7"]
-size = Vector2(65, 194.5)
+size = Vector2(77, 178)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llfg5"]
+size = Vector2(20, 178)
 
 [node name="Oyster" type="Area2D" groups=["Oyster"]]
 collision_layer = 0
@@ -12,11 +56,22 @@ collision_mask = 2
 script = ExtResource("1_7sxon")
 direction = Vector2(0, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_d2xuo")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e4md4")
+animation = &"hurt"
+autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(65.5, -0.25)
+position = Vector2(25.5, 3)
 shape = SubResource("RectangleShape2D_3kgh7")
+
+[node name="Back" type="Area2D" parent="." groups=["Hazard"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(72, 3)
+shape = SubResource("RectangleShape2D_llfg5")
+debug_color = Color(0.936083, 0.0974749, 0.578097, 0.42)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

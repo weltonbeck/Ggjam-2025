@@ -3,72 +3,72 @@
 [ext_resource type="Script" path="res://holdables/holdable.gd" id="1_q6w7r"]
 [ext_resource type="Texture2D" uid="uid://dwrra06kdjyg6" path="res://holdables/treasure/sprite_treasure.png" id="2_n2wy8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_theyu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ku1s"]
 atlas = ExtResource("2_n2wy8")
-region = Rect2(0, 0, 147, 115)
+region = Rect2(0, 0, 250, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aa8p7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3882t"]
 atlas = ExtResource("2_n2wy8")
-region = Rect2(147, 0, 147, 115)
+region = Rect2(250, 0, 250, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkicf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycxwq"]
 atlas = ExtResource("2_n2wy8")
-region = Rect2(294, 0, 147, 115)
+region = Rect2(500, 0, 250, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8rwg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4plci"]
 atlas = ExtResource("2_n2wy8")
-region = Rect2(441, 0, 147, 115)
+region = Rect2(750, 0, 250, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fuj67"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie1wo"]
 atlas = ExtResource("2_n2wy8")
-region = Rect2(588, 0, 147, 115)
+region = Rect2(1000, 0, 250, 200)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_45huf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_theyu")
+"texture": SubResource("AtlasTexture_3ku1s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aa8p7")
+"texture": SubResource("AtlasTexture_3882t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vkicf")
+"texture": SubResource("AtlasTexture_ycxwq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f8rwg")
-}, {
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_fuj67")
+"texture": SubResource("AtlasTexture_4plci")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aa8p7")
+"texture": SubResource("AtlasTexture_ie1wo")
 }, {
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_theyu")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3882t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ku1s")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkmy7"]
-size = Vector2(91, 69)
+size = Vector2(196, 152)
 
 [node name="TresureChest" type="Area2D" groups=["Holdable"]]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
 script = ExtResource("1_q6w7r")
-min_bubble_size = 1.5
+min_bubble_size = 2.0
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -20)
 sprite_frames = SubResource("SpriteFrames_45huf")
 autoplay = "default"
-frame_progress = 0.553164
+frame_progress = 0.701372
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, -8)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_nkmy7")

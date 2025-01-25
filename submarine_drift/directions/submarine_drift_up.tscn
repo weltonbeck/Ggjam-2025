@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://m5fmq47703vd"]
+
+[ext_resource type="PackedScene" uid="uid://comqi7nshu3qa" path="res://submarine_drift/submarine_drift.tscn" id="1_f0aq0"]
+
+[node name="SubmarineDriftUp" type="Node2D"]
+
+[node name="SubmarineDrift" parent="." instance=ExtResource("1_f0aq0")]

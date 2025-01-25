@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcery7knxi17u"
-path="res://.godot/imported/correnteza_1.png-0dc2e466803d776c8c080ef8411f24ff.ctex"
+uid="uid://dlh62kx1robbj"
+path="res://.godot/imported/sprite_submarine_drift.png-a9d00db3e1bf4557d41aeaff801020af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://submarine_drift/correnteza_1.png"
-dest_files=["res://.godot/imported/correnteza_1.png-0dc2e466803d776c8c080ef8411f24ff.ctex"]
+source_file="res://submarine_drift/sprite_submarine_drift.png"
+dest_files=["res://.godot/imported/sprite_submarine_drift.png-a9d00db3e1bf4557d41aeaff801020af.ctex"]
 
 [params]
 
