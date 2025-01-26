@@ -92,6 +92,11 @@ func shoot(delta) -> void:
 			releasing_bubble.play()
 			instance_bullet = null
 			shooting_released = false
+			
+	if instance_bullet && is_instance_valid(instance_bullet) && instance_bullet.is_active :
+		able_to_shoot = false
+		instance_bullet = null
+		shooting_released = false
 	
 	if !able_to_shoot:
 		delay_shoot_buffer += delta

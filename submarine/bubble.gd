@@ -51,10 +51,11 @@ func flip(new_face_is_right:bool):
 
 
 func increase_scale(mor_scale:float) -> void:
-	if scale.x >= MAX_SCALE:
-		scale = Vector2(MAX_SCALE,MAX_SCALE)
-	else:
-		scale += Vector2(mor_scale,mor_scale)
+	if !is_active:
+		if scale.x >= MAX_SCALE:
+			scale = Vector2(MAX_SCALE,MAX_SCALE)
+		else:
+			scale += Vector2(mor_scale,mor_scale)
 
 
 func start_move(new_direction:Vector2) -> void:
@@ -66,7 +67,7 @@ func start_move(new_direction:Vector2) -> void:
 	is_active = true
 
 
-func explode() -> void:
+func explode() -> void:	
 	is_able_to_move = false
 	
 	if !is_holding_something || !holding_object || !holding_object.has_method("drop"):
@@ -77,7 +78,10 @@ func explode() -> void:
 
 
 func hold(area:Area2D) -> void:
-	if is_able_to_move && !is_holding_something && area.has_method("hold") && area.min_bubble_size <= scale.x:
+	if !is_active:
+		start_move(Vector2.ZERO)
+		
+	if is_active && is_able_to_move && !is_holding_something && area.has_method("hold") && area.min_bubble_size <= scale.x:
 		is_holding_something = true
 		is_able_to_move = false
 		$AnimationPlayer.play("fusion")
@@ -121,7 +125,8 @@ func pushed(move_direction, new_position=global_position):
 	if move_direction != Vector2.ZERO:
 		if is_active:
 			var tween = create_tween()
-			
+			if scale.x <= MAX_SCALE:
+				tween.tween_property(self, "scale",Vector2(1,1), 0.01)
 			if move_direction.x != 0:
 				tween.tween_property(self, "global_position:y", new_position.y, 0.2)
 			else:
@@ -136,7 +141,9 @@ func pushed(move_direction, new_position=global_position):
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if is_active && area.is_in_group("Bubbles"):
+	if area.is_in_group("Bubbles"):
+		if !is_active:
+			start_move(area.get_parent().direction)
 		if (scale.x > area.get_parent().scale.x || (scale.x == area.get_parent().scale.x && get_instance_id() < area.get_parent().get_instance_id()) ) && scale.x < EXPLODE_SCALE && !is_holding_something :
 			$AnimationPlayer.play("fusion")
 			scale += Vector2(0.5,0.5)
@@ -145,7 +152,7 @@ func _on_area_entered(area: Area2D) -> void:
 		else:
 			explode()
 	
-	elif is_active && area.is_in_group("Holdable"):
+	elif area.is_in_group("Holdable"):
 		hold(area)
 		
 	else:

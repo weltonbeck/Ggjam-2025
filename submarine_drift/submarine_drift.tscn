@@ -28,7 +28,7 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="SubmarineDrift" type="Area2D"]
+[node name="SubmarineDrift" type="Area2D" groups=["Bubble"]]
 collision_mask = 2063
 script = ExtResource("1_mf58c")
 metadata/_edit_group_ = true
