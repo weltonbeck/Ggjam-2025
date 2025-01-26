@@ -12,6 +12,9 @@ var is_active = false
 var is_being_pushed = false
 @export var default_speed: float = 600.0
 @onready var speed = default_speed
+@onready var pop: AudioStreamPlayer = $Pop
+@onready var catching: AudioStreamPlayer = $Catching
+
 var is_able_to_move = false
 var face_is_right = true
 var direction: Vector2 = Vector2.RIGHT
@@ -67,6 +70,7 @@ func explode() -> void:
 	is_able_to_move = false
 	
 	if !is_holding_something || !holding_object || !holding_object.has_method("drop"):
+		pop.play()
 		$AnimationPlayer.play("explode")
 		await $AnimationPlayer.animation_finished
 		call_deferred("queue_free")
@@ -96,11 +100,14 @@ func hold(area:Area2D) -> void:
 func disappear() -> void:
 	await get_tree().create_timer(.5).timeout
 	if disappear_effect:
+		catching.play()
 		var instance_disappear_effect = disappear_effect.instantiate()
 		instance_disappear_effect.scale = scale
 		instance_disappear_effect.global_position = $Area2D/CollisionShape2D.global_position
 		get_tree().root.add_child(instance_disappear_effect)
 	GameManager.set_treasure_resgate()
+	hide()
+	await get_tree().create_timer(.2).timeout
 	call_deferred("queue_free")
 	
 func push(body:Node2D)->void:

@@ -12,6 +12,7 @@ func _input(event: InputEvent) -> void:
 		set_pause()
 
 func _ready() -> void:
+	GameManager.play_music("level")
 	GameManager.treasure_is_resgated.connect(treasure_is_resgated)
 
 

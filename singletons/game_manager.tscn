@@ -7,3 +7,5 @@
 script = ExtResource("1_sp3fu")
 
 [node name="ScreenTransition" parent="." instance=ExtResource("2_6x0uf")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]

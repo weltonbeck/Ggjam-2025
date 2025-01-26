@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://82dwge226ptr"]
+[gd_scene load_steps=18 format=3 uid="uid://82dwge226ptr"]
 
 [ext_resource type="Script" path="res://submarine/bubble.gd" id="1_bnu3k"]
 [ext_resource type="Shader" path="res://submarine/bubble_shader_refraction.gdshader" id="1_r10fj"]
 [ext_resource type="PackedScene" uid="uid://c1wjcwdv7man" path="res://effects/effect_disappears.tscn" id="2_80q5x"]
 [ext_resource type="Texture2D" uid="uid://buu3s6j3du4sb" path="res://submarine/sprite_bubbles.png" id="4_efx70"]
+[ext_resource type="AudioStream" uid="uid://bvp33q0lxbyay" path="res://submarine/sounds/poping_bubble.mp3" id="5_xcape"]
+[ext_resource type="AudioStream" uid="uid://dy3fs51nhupqw" path="res://submarine/sounds/tresure_catching.mp3" id="6_fvxoq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnlq7"]
 shader = ExtResource("1_r10fj")
@@ -219,6 +221,14 @@ libraries = {
 "": SubResource("AnimationLibrary_uk37k")
 }
 autoplay = "start"
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xcape")
+volume_db = 24.0
+
+[node name="Catching" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fvxoq")
+volume_db = 16.22
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8r1a4no4h5tm"]
+[gd_scene load_steps=7 format=3 uid="uid://c8r1a4no4h5tm"]
 
 [ext_resource type="Texture2D" uid="uid://bk7kd4stl6lhi" path="res://submarine/sprite_submarine.png" id="1_3kghg"]
 [ext_resource type="Script" path="res://submarine/submarine.gd" id="1_3p7js"]
 [ext_resource type="PackedScene" uid="uid://82dwge226ptr" path="res://submarine/bubble.tscn" id="2_0b6fg"]
+[ext_resource type="AudioStream" uid="uid://cyolst4udvgf5" path="res://submarine/sounds/engine.mp3" id="4_30fvj"]
+[ext_resource type="AudioStream" uid="uid://helr4uskore6" path="res://submarine/sounds/releasing_bubble.mp3" id="5_ji61o"]
+[ext_resource type="AudioStream" uid="uid://bx76eu1epcs11" path="res://submarine/sounds/filling_bubble.mp3" id="6_l75d7"]
 
 [node name="Submarine" type="CharacterBody2D"]
 collision_mask = 24
@@ -23,3 +26,12 @@ position = Vector2(-147, 60)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(177, 62, 157, 98, 108, 135, -131, 135, -177, 65, -179, -111, 24, -112, 63, -98, 84, -76, 91, -55, 128, -35, 151, -14, 173, 16)
 metadata/_edit_lock_ = true
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_30fvj")
+
+[node name="ReleasingBubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ji61o")
+
+[node name="FillingBubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l75d7")

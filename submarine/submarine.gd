@@ -6,6 +6,9 @@ const WATER_FRICTION = 0.5
 @onready var speed = default_speed
 @export var bullet: PackedScene
 @export var after_drift_delay = 1
+@onready var engine_sound: AudioStreamPlayer = $EngineSound
+@onready var releasing_bubble: AudioStreamPlayer = $ReleasingBubble
+@onready var filling_bubble: AudioStreamPlayer = $FillingBubble
 
 
 var face_is_right = true
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 
 
 func walk() -> void:
+	
 	var direction_x = Input.get_axis("move_left", "move_right")
 	if direction_x != 0:
 			face_is_right = direction_x == 1
@@ -43,14 +47,22 @@ func walk() -> void:
 		velocity.y = lerp(velocity.y, direction_y * speed, WATER_FRICTION)
 	else:
 		velocity.y = move_toward(velocity.y, 0, speed)
+	
+	if velocity != Vector2.ZERO:
+		if !engine_sound.playing:
+			engine_sound.play()
+	else:
+		engine_sound.stop()
 
 
 func shoot(delta) -> void:
-	
+
 	if Input.is_action_just_pressed("ui_shoot") :
 		shooting_pressed = true
 		shooting_released = false
+		filling_bubble.play()
 	if Input.is_action_just_released("ui_shoot"):
+		filling_bubble.stop()
 		shooting_released = true
 	
 	var bubble_position = $RightBulletSpawnerMarker.global_position
@@ -77,6 +89,7 @@ func shoot(delta) -> void:
 		if instance_bullet && is_instance_valid(instance_bullet) && instance_bullet.has_method("start_move"):
 			able_to_shoot = false
 			instance_bullet.start_move(bubble_direction)
+			releasing_bubble.play()
 			instance_bullet = null
 			shooting_released = false
 	
