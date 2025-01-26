@@ -55,7 +55,6 @@ size = Vector2(20, 178)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_7sxon")
-direction = Vector2(0, -1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e4md4")
