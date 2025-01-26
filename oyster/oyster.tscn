@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy36cefp64o82"]
+[gd_scene load_steps=10 format=3 uid="uid://cy36cefp64o82"]
 
 [ext_resource type="Script" path="res://oyster/oyster.gd" id="1_7sxon"]
 [ext_resource type="Texture2D" uid="uid://duxfabcjd3rnp" path="res://oyster/sprite_oyster.png" id="1_d2xuo"]
@@ -45,11 +45,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kgh7"]
-size = Vector2(77, 178)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llfg5"]
-size = Vector2(20, 178)
+size = Vector2(27, 125)
 
 [node name="Oyster" type="Area2D" groups=["Oyster"]]
 collision_layer = 0
@@ -58,19 +55,18 @@ script = ExtResource("1_7sxon")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_e4md4")
-animation = &"hurt"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(25.5, 3)
-shape = SubResource("RectangleShape2D_3kgh7")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-91, 93, 54, 91, 54, -32, -2, -32, -4, 26, -89, 27)
 
 [node name="Back" type="Area2D" parent="." groups=["Hazard"]]
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
-position = Vector2(72, 3)
+position = Vector2(72.5, 29.5)
 shape = SubResource("RectangleShape2D_llfg5")
 debug_color = Color(0.936083, 0.0974749, 0.578097, 0.42)
 

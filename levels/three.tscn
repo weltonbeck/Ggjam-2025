@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://cb738fl4p4s65"]
 
 [ext_resource type="PackedScene" uid="uid://bgt1padgok7sx" path="res://levels/level_manager.tscn" id="1_5jsnp"]
-[ext_resource type="PackedScene" uid="uid://dkk5sa11f2q01" path="res://ui/credits_screen/credits_screen.tscn" id="2_gsimi"]
+[ext_resource type="PackedScene" uid="uid://fv7f4td2ldha" path="res://levels/four.tscn" id="2_3ynk6"]
 [ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="2_vkxkl"]
 [ext_resource type="TileSet" uid="uid://72ka30jyhohi" path="res://platformers/floor_terrain.tres" id="3_awx33"]
 [ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="4_hirgi"]
@@ -15,7 +15,7 @@
 [node name="LevelThree" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource("1_5jsnp")]
-next_level = ExtResource("2_gsimi")
+next_level = ExtResource("2_3ynk6")
 treasures_in_level = 4
 
 [node name="Background" parent="." instance=ExtResource("2_vkxkl")]
@@ -66,6 +66,7 @@ invert_on_hurt = false
 [node name="Oyster2" parent="." instance=ExtResource("8_v0ub1")]
 position = Vector2(353, 2107)
 scale = Vector2(-1, 1)
+invert_on_hurt = false
 
 [node name="TresureChest" parent="." instance=ExtResource("9_xiwwn")]
 position = Vector2(3723, 1316)

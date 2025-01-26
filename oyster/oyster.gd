@@ -13,11 +13,11 @@ func _on_area_entered(area: Area2D) -> void:
 			direction = Vector2(0, -1)
 
 		area.get_parent().direction = direction
+		hurt.play()
+		$AnimatedSprite2D.play("hurt")
+		await $AnimatedSprite2D.animation_finished
+		$AnimatedSprite2D.play("idle")
 		if invert_on_hurt:
-			hurt.play()
-			$AnimatedSprite2D.play("hurt")
-			await $AnimatedSprite2D.animation_finished
 			direction *= -1
 			scale.x = scale.x * -1
-			$AnimatedSprite2D.play("idle")
 	

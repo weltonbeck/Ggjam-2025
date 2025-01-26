@@ -32,8 +32,9 @@ func _physics_process(delta: float) -> void:
 		
 	if use_gravity && ! is_on_floor() &&  direction.y != -1:
 		velocity += get_gravity() * delta
-
-	move_and_slide()
+	
+	if use_gravity || is_pushed:
+		move_and_slide()
 
 func push(bubble:Bubble) -> void:
 	if bubble && bubble.scale.x >= min_bubble_size:

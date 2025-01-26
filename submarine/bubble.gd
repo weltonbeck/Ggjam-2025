@@ -149,7 +149,7 @@ func _on_area_entered(area: Area2D) -> void:
 			scale += Vector2(0.5,0.5)
 			if is_pushing_something && pushing_object:
 				push(pushing_object)
-		else:
+		elif !is_pushing_something && !pushing_object:
 			explode()
 	
 	elif area.is_in_group("Holdable"):
