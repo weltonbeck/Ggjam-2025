@@ -1,4 +1,5 @@
 extends CanvasLayer
+@onready var click: AudioStreamPlayer = $Click
 
 
 func _ready() -> void:
@@ -6,16 +7,19 @@ func _ready() -> void:
 
 
 func _on_continue_button_pressed() -> void:
+	click.play()
 	get_tree().paused = false
 	hide()
 
 
 func _on_restart_button_pressed() -> void:
+	click.play()
 	get_tree().paused = false
 	GameManager.change_scene(get_tree().current_scene.scene_file_path)
 
 
 func _on_quit_button_pressed() -> void:
+	click.play()
 	get_tree().paused = false
 	GameManager.go_to_title_game()
 

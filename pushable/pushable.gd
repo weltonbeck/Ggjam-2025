@@ -6,6 +6,7 @@ const WATER_FRICTION = 0.5
 @export var min_bubble_size = 1.0
 @export var allow_rotation = false
 @export var rotation_element:Node2D
+@onready var hit: AudioStreamPlayer = $Hit
 
 var is_pushed = false
 var speed = 200.0
@@ -36,6 +37,7 @@ func _physics_process(delta: float) -> void:
 
 func push(bubble:Bubble) -> void:
 	if bubble && bubble.scale.x >= min_bubble_size:
+		hit.play()
 		direction = bubble.direction
 		is_pushed = true
 		bubble_push = bubble

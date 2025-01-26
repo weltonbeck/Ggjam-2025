@@ -225,10 +225,12 @@ autoplay = "start"
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_xcape")
 volume_db = 24.0
+bus = &"SFX"
 
 [node name="Catching" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_fvxoq")
 volume_db = 16.22
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgt1padgok7sx"]
+[gd_scene load_steps=6 format=3 uid="uid://bgt1padgok7sx"]
 
 [ext_resource type="Script" path="res://levels/level_manager.gd" id="1_eltsl"]
 [ext_resource type="PackedScene" uid="uid://cniisgepkceri" path="res://ui/pause_screen/pause_screen.tscn" id="2_dpsy7"]
 [ext_resource type="Texture2D" uid="uid://dk8dmt4o8ewjv" path="res://ui/buttons/Pause.png" id="3_f1g2c"]
+
+[sub_resource type="SystemFont" id="SystemFont_qpewu"]
+font_names = PackedStringArray("Arial")
+font_weight = 800
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfi3o"]
+font = SubResource("SystemFont_qpewu")
+font_size = 60
+outline_size = 5
+outline_color = Color(0, 0, 0, 0.941176)
 
 [node name="LevelManager" type="Node2D"]
 process_mode = 3
@@ -20,14 +30,38 @@ modulate = Color(1, 1, 1, 0.541176)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -137.0
+offset_left = -140.0
 offset_top = 20.0
-offset_right = 75.0
+offset_right = 72.0
 offset_bottom = 229.0
 grow_horizontal = 0
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 8
 texture_normal = ExtResource("3_f1g2c")
+
+[node name="LabelContainer" type="HBoxContainer" parent="LevelMenu"]
+offset_left = 34.0
+offset_top = 20.0
+offset_right = 518.0
+offset_bottom = 111.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="LevelMenu/LabelContainer"]
+layout_mode = 2
+text = "Tresures: "
+label_settings = SubResource("LabelSettings_yfi3o")
+
+[node name="TresureCount" type="Label" parent="LevelMenu/LabelContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_yfi3o")
+horizontal_alignment = 1
+
+[node name="TotalTresures" type="Label" parent="LevelMenu/LabelContainer"]
+layout_mode = 2
+text = "/ 1"
+label_settings = SubResource("LabelSettings_yfi3o")
+horizontal_alignment = 1
 
 [connection signal="pause" from="." to="PauseScreen" method="handle_pause"]
 [connection signal="pressed" from="LevelMenu/PauseButton" to="." method="set_pause"]

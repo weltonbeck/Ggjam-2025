@@ -1,38 +1,38 @@
 [gd_scene load_steps=10 format=4 uid="uid://xkv7mqgk0ltq"]
 
-[ext_resource type="PackedScene" uid="uid://bgt1padgok7sx" path="res://levels/level_manager.tscn" id="1_tduwu"]
-[ext_resource type="PackedScene" uid="uid://orb5mtptta03" path="res://levels/level_two.tscn" id="2_fc0p8"]
-[ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="2_kvcxx"]
-[ext_resource type="TileSet" uid="uid://72ka30jyhohi" path="res://platformers/floor_terrain.tres" id="3_awdi4"]
-[ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="4_5xstf"]
-[ext_resource type="PackedScene" uid="uid://dqslxq6be7gc8" path="res://holdables/fish/fishBig.tscn" id="7_8o5si"]
-[ext_resource type="PackedScene" uid="uid://dns73b1301tmw" path="res://holdables/fish/fish.tscn" id="7_xujiq"]
-[ext_resource type="Texture2D" uid="uid://q8vku1s0t5gs" path="res://ui/hud_controllers.png" id="8_l100f"]
-[ext_resource type="Texture2D" uid="uid://baan13jr8y7f7" path="res://ui/hud_big_bubbles.png" id="9_a8rmw"]
+[ext_resource type="PackedScene" uid="uid://bgt1padgok7sx" path="res://levels/level_manager.tscn" id="1_qusyf"]
+[ext_resource type="PackedScene" uid="uid://orb5mtptta03" path="res://levels/two.tscn" id="2_p7260"]
+[ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="3_m0eio"]
+[ext_resource type="Texture2D" uid="uid://baan13jr8y7f7" path="res://ui/hud_big_bubbles.png" id="4_5wo7y"]
+[ext_resource type="Texture2D" uid="uid://q8vku1s0t5gs" path="res://ui/hud_controllers.png" id="5_uj1rb"]
+[ext_resource type="TileSet" uid="uid://72ka30jyhohi" path="res://platformers/floor_terrain.tres" id="6_4qpje"]
+[ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="7_c7bpn"]
+[ext_resource type="PackedScene" uid="uid://dns73b1301tmw" path="res://holdables/fish/fish.tscn" id="8_ot2mq"]
+[ext_resource type="PackedScene" uid="uid://dqslxq6be7gc8" path="res://holdables/fish/fishBig.tscn" id="9_aymfi"]
 
 [node name="LevelOne" type="Node2D"]
 
-[node name="LevelManager" parent="." instance=ExtResource("1_tduwu")]
-next_level = ExtResource("2_fc0p8")
+[node name="LevelManager" parent="." instance=ExtResource("1_qusyf")]
+next_level = ExtResource("2_p7260")
 treasures_in_level = 3
 
-[node name="Background" parent="." instance=ExtResource("2_kvcxx")]
+[node name="Background" parent="." instance=ExtResource("3_m0eio")]
 
 [node name="HudBigBubbles" type="Sprite2D" parent="."]
 position = Vector2(1009, 801)
-texture = ExtResource("9_a8rmw")
+texture = ExtResource("4_5wo7y")
 
 [node name="HudControllers" type="Sprite2D" parent="."]
 position = Vector2(1088, 2201)
-texture = ExtResource("8_l100f")
+texture = ExtResource("5_uj1rb")
 metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." groups=["Hazard"]]
 position = Vector2(9, 0)
 tile_map_data = PackedByteArray("AAAXAA0AAgACAAEAAAAWAA0AAgABAAEAAAAVAA0AAgABAAEAAAAUAA0AAgABAAEAAAATAA0AAgABAAEAAAASAA0AAgABAAEAAAARAA0AAgABAAEAAAAQAA0AAgABAAEAAAAPAA0AAgABAAEAAAAOAA0AAgABAAEAAAANAA0AAgABAAEAAAAMAA0AAgABAAEAAAALAA0AAgABAAEAAAAKAA0AAgABAAEAAAAJAA0AAgABAAEAAAAIAA0AAgABAAEAAAAHAA0AAgABAAEAAAAGAA0AAgABAAEAAAAFAA0AAgABAAEAAAAEAA0AAgABAAEAAAADAA0AAgABAAEAAAACAA0AAgABAAEAAAABAA0AAgABAAEAAAAAAA0AAgABAAEAAAD//w0AAgABAAEAAAD+/w0AAgABAAEAAAD9/w0AAgABAAEAAAD//wwAAgABAAEAAAAAAAwAAgABAAEAAAABAAwAAgAGAAEAAAACAAwAAgABAAAAAAADAAwAAgABAAAAAAAEAAwAAgABAAAAAAAJAAwAAgAHAAEAAAAIAAwAAgABAAAAAAAHAAwAAgABAAAAAAAGAAwAAgABAAAAAAAFAAwAAgABAAAAAAD+/wwAAgABAAEAAAD9/wwAAgABAAEAAAAPAAwAAgABAAEAAAAQAAwAAgABAAEAAAARAAwAAgABAAEAAAASAAwAAgABAAEAAAAOAAwAAgABAAEAAAANAAwAAgABAAEAAAAMAAwAAgABAAEAAAALAAwAAgABAAEAAAAKAAwAAgABAAEAAAAUAAwAAgABAAEAAAATAAwAAgABAAEAAAAVAAwAAgABAAEAAAAWAAwAAgAGAAEAAAAXAAwAAgACAAAAAAAWAAsAAgACAAAAAAAVAAsAAgAGAAEAAAAUAAsAAgABAAEAAAATAAsAAgABAAEAAAASAAsAAgAHAAEAAAARAAsAAgABAAAAAAAQAAsAAgABAAAAAAAPAAsAAgAGAAEAAAAOAAsAAgABAAEAAAATAAkAAgAAAAAAAAATAAoAAgAHAAEAAAAVAAoAAgACAAEAAAAVAAkAAgACAAAAAAAUAAkAAgABAAAAAAAUAAoAAgABAAEAAAD9/wsAAgABAAEAAAD9/woAAgABAAEAAAD+/woAAgABAAEAAAD//woAAgABAAEAAAD//wsAAgABAAEAAAAAAAsAAgAGAAEAAAD+/wsAAgABAAEAAAASAAoAAgAAAAAAAAAJAAsAAgAAAAAAAAAKAAsAAgAHAAEAAAALAAsAAgABAAEAAAAMAAsAAgABAAEAAAANAAsAAgABAAEAAAAKAAoAAgAAAAAAAAALAAoAAgAHAAEAAAAMAAoAAgABAAEAAAANAAoAAgAGAAEAAAAOAAoAAgABAAAAAAAPAAoAAgACAAAAAAALAAkAAgAAAAAAAAAMAAkAAgABAAAAAAANAAkAAgACAAAAAAAMAAcAAQAAAAIAAAAMAAYAAQAAAAEAAAAMAAUAAQAAAAEAAAAMAAEAAQAAAAEAAAAMAAIAAQAAAAEAAAD9/wgAAgAHAAEAAAD9/wkAAgABAAEAAAD8/wwAAgABAAEAAAD8/w0AAgABAAEAAAD7/w0AAgABAAEAAAD6/w0AAgABAAEAAAD6/w4AAgABAAIAAAD8/wgAAgAAAAAAAAD8/wkAAgAAAAEAAAD8/woAAgAHAAEAAAD8/wsAAgABAAEAAAD6/wwAAgABAAEAAAD7/wwAAgABAAEAAAD8/w4AAgABAAIAAAD9/w4AAgABAAIAAAD7/w4AAgABAAIAAAD7/wsAAgABAAEAAAD6/woAAgAAAAAAAAD7/woAAgABAAAAAAD6/wsAAgAHAAEAAAD5/wsAAgAAAAAAAAD5/wwAAgAAAAEAAAD5/w0AAgAAAAEAAAD5/w4AAgAAAAIAAAD//wcAAgAHAAEAAAD//wgAAgABAAEAAAD//wkAAgABAAEAAAD+/wkAAgABAAEAAAD+/wgAAgABAAEAAAD+/wcAAgABAAAAAAD9/wcAAgAAAAAAAAAMAAMAAQAAAAEAAAAMAAQAAQAAAAEAAAD+/w4AAgABAAIAAAD//w4AAgABAAIAAAAAAA4AAgABAAIAAAABAA4AAgABAAIAAAACAA4AAgABAAIAAAAGAA4AAgABAAIAAAAFAA4AAgABAAIAAAAEAA4AAgABAAIAAAADAA4AAgABAAIAAAAOAA4AAgABAAIAAAANAA4AAgABAAIAAAAMAA4AAgABAAIAAAALAA4AAgABAAIAAAAKAA4AAgABAAIAAAAJAA4AAgABAAIAAAAIAA4AAgABAAIAAAAHAA4AAgABAAIAAAAUAA4AAgABAAIAAAATAA4AAgABAAIAAAASAA4AAgABAAIAAAAQAA4AAgABAAIAAAARAA4AAgABAAIAAAAPAA4AAgABAAIAAAAXAA4AAgACAAIAAAAWAA4AAgABAAIAAAAVAA4AAgABAAIAAAAAAAAAAQABAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAgACAAAAAAAAAAUAAgAGAAEAAAAAAAYAAgABAAEAAAAAAAcAAgAGAAAAAAABAAAAAQACAAAAAAACAAAAAQACAAAAAAADAAAAAQACAAAAAAAEAAAAAQACAAAAAAAFAAAAAQACAAAAAAAGAAAAAQACAAAAAAAHAAAAAQACAAAAAAAIAAAAAQACAAAAAAAJAAAAAQACAAAAAAAKAAAAAQACAAAAAAALAAAAAQACAAAAAAAMAAAAAQABAAEAAAANAAAAAQADAAAAAAAMAP//AQAAAAAAAAAAAP//AQAAAAAAAAD//wAAAQABAAAAAAAAAAgAAgACAAEAAAAAAAkAAgACAAEAAAAAAAoAAgACAAEAAAABAAsAAgACAAAAAAAFAAUAAgACAAAAAAAEAAUAAgABAAAAAAADAAUAAgABAAAAAAACAAUAAgABAAAAAAABAAUAAgABAAAAAAD//wUAAgAAAAEAAAD//wYAAgAAAAEAAAD//wQAAgAAAAAAAAAFAAYAAgACAAIAAAAEAAYAAgABAAIAAAADAAYAAgABAAIAAAACAAYAAgABAAIAAAABAAYAAgAGAAAAAAABAAcAAgACAAIAAAA=")
-tile_set = ExtResource("3_awdi4")
+tile_set = ExtResource("6_4qpje")
 
-[node name="Submarine" parent="." instance=ExtResource("4_5xstf")]
+[node name="Submarine" parent="." instance=ExtResource("7_c7bpn")]
 position = Vector2(647, 1757)
 
 [node name="Camera2D" type="Camera2D" parent="Submarine"]
@@ -49,14 +49,14 @@ drag_right_margin = 0.01
 drag_bottom_margin = 0.5
 metadata/_edit_lock_ = true
 
-[node name="Fish" parent="." instance=ExtResource("7_xujiq")]
+[node name="Fish" parent="." instance=ExtResource("8_ot2mq")]
 position = Vector2(2122, 1549)
 face_to_right = false
 
-[node name="Fish2" parent="." instance=ExtResource("7_xujiq")]
+[node name="Fish2" parent="." instance=ExtResource("8_ot2mq")]
 position = Vector2(3009, 1701)
 move = false
 face_to_right = false
 
-[node name="FishBig" parent="." instance=ExtResource("7_8o5si")]
+[node name="FishBig" parent="." instance=ExtResource("9_aymfi")]
 position = Vector2(1783, 811)

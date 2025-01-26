@@ -17,13 +17,13 @@ func set_treasure_resgate() -> void:
 	treasure_is_resgated.emit()
 
 func go_to_title_game()-> void:
-	await change_scene("res://levels/level_title.tscn")
+	await change_scene("res://ui/title_screen/title_screen.tscn")
 
 func go_to_level_credits()-> void:
-	await change_scene("res://levels/level_credits.tscn")
+	await change_scene("res://ui/credits_screen/credits_screen.tscn")
 
 func go_to_level_one()-> void:
-	await change_scene("res://levels/level_one.tscn")
+	await change_scene("res://levels/one.tscn")
 	
 func change_scene(new_scene: String) -> void:
 	await transition.close()

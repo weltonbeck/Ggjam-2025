@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy36cefp64o82"]
+[gd_scene load_steps=11 format=3 uid="uid://cy36cefp64o82"]
 
 [ext_resource type="Script" path="res://oyster/oyster.gd" id="1_7sxon"]
 [ext_resource type="Texture2D" uid="uid://duxfabcjd3rnp" path="res://oyster/sprite_oyster.png" id="1_d2xuo"]
+[ext_resource type="AudioStream" uid="uid://cx4quf2dw5n1p" path="res://oyster/sounds/hey.wav" id="3_co6ue"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usxf2"]
 atlas = ExtResource("1_d2xuo")
@@ -73,5 +74,8 @@ shape = SubResource("RectangleShape2D_3kgh7")
 position = Vector2(72, 3)
 shape = SubResource("RectangleShape2D_llfg5")
 debug_color = Color(0.936083, 0.0974749, 0.578097, 0.42)
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_co6ue")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

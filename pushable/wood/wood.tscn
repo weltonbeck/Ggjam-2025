@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxjt5fkksv4a7"]
+[gd_scene load_steps=5 format=3 uid="uid://cxjt5fkksv4a7"]
 
 [ext_resource type="Script" path="res://pushable/pushable.gd" id="1_wjte0"]
 [ext_resource type="Texture2D" uid="uid://dv2yn6h2h3np6" path="res://pushable/wood/sprite_wood.png" id="2_c0df7"]
+[ext_resource type="AudioStream" uid="uid://73upboqp240v" path="res://pushable/wood/sounds/wood_hiting.wav" id="3_snjsx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tvht"]
 size = Vector2(398, 200)
@@ -24,3 +25,7 @@ texture = ExtResource("2_c0df7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -100)
 shape = SubResource("RectangleShape2D_3tvht")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_snjsx")
+volume_db = 16.0

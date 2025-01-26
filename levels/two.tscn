@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bgt1padgok7sx" path="res://levels/level_manager.tscn" id="1_doxcm"]
 [ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="2_fwrfl"]
-[ext_resource type="PackedScene" uid="uid://cb738fl4p4s65" path="res://levels/level_three.tscn" id="2_wthg4"]
+[ext_resource type="PackedScene" uid="uid://cb738fl4p4s65" path="res://levels/three.tscn" id="2_wthg4"]
 [ext_resource type="TileSet" uid="uid://72ka30jyhohi" path="res://platformers/floor_terrain.tres" id="3_uukee"]
 [ext_resource type="PackedScene" uid="uid://c8r1a4no4h5tm" path="res://submarine/submarine.tscn" id="4_gs4ou"]
 [ext_resource type="PackedScene" uid="uid://dns73b1301tmw" path="res://holdables/fish/fish.tscn" id="5_0cqeb"]

@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkk5sa11f2q01"]
+[gd_scene load_steps=11 format=3 uid="uid://dkk5sa11f2q01"]
 
 [ext_resource type="Texture2D" uid="uid://fpvmfd3lsoyh" path="res://ui/buttons/button_normal.png" id="1_qn2lo"]
-[ext_resource type="Script" path="res://levels/level_credits.gd" id="1_rtohu"]
+[ext_resource type="Script" path="res://ui/credits_screen/credits_screen.gd" id="1_rtohu"]
 [ext_resource type="Texture2D" uid="uid://dwlacb7g5p7s3" path="res://ui/buttons/button_hover.png" id="2_dy14j"]
 [ext_resource type="Texture2D" uid="uid://buu1n812c7epc" path="res://ui/buttons/button_pressed.png" id="3_5hwvh"]
-[ext_resource type="PackedScene" uid="uid://b3k5d7y4ay3bh" path="res://background/background.tscn" id="4_cjwkn"]
+[ext_resource type="AudioStream" uid="uid://dhegcpoemffxl" path="res://ui/buttons/sounds/click.wav" id="5_q4u3f"]
+[ext_resource type="Texture2D" uid="uid://dk5eemci4okfo" path="res://background/background_01.png" id="5_uwouy"]
+[ext_resource type="Texture2D" uid="uid://u3ry0oh2keid" path="res://background/background_02.png" id="6_skc1v"]
+[ext_resource type="Texture2D" uid="uid://buo8100ss2n30" path="res://background/background_03.png" id="7_h2yix"]
+[ext_resource type="Texture2D" uid="uid://cg3ksmakcoyyl" path="res://background/background_04.png" id="8_ggs2p"]
+[ext_resource type="Texture2D" uid="uid://didy71mlsdr7f" path="res://background/background_05.png" id="9_rmbfg"]
 
 [node name="LevelCredits" type="Node2D"]
 script = ExtResource("1_rtohu")
@@ -71,6 +76,26 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 50
 text = "Back"
 
-[node name="Background" parent="." instance=ExtResource("4_cjwkn")]
+[node name="Click" type="AudioStreamPlayer" parent="CanvasLayer/ButtonBack"]
+stream = ExtResource("5_q4u3f")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(960, 540)
+metadata/_edit_group_ = true
+
+[node name="Image01" type="Sprite2D" parent="Background"]
+texture = ExtResource("5_uwouy")
+
+[node name="Image02" type="Sprite2D" parent="Background"]
+texture = ExtResource("6_skc1v")
+
+[node name="Image03" type="Sprite2D" parent="Background"]
+texture = ExtResource("7_h2yix")
+
+[node name="Image04" type="Sprite2D" parent="Background"]
+texture = ExtResource("8_ggs2p")
+
+[node name="Image05" type="Sprite2D" parent="Background"]
+texture = ExtResource("9_rmbfg")
 
 [connection signal="button_down" from="CanvasLayer/ButtonBack" to="." method="_on_button_back_button_down"]
