@@ -35,13 +35,12 @@ script = ExtResource("1_x36yb")
 min_bubble_size = 1.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.4, 1.4)
 sprite_frames = SubResource("SpriteFrames_4lhpm")
 autoplay = "default"
 frame_progress = 0.00680513
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-15, 0)
 shape = SubResource("CircleShape2D_isd46")
 

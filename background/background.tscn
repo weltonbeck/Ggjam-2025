@@ -62,6 +62,7 @@ motion_scale = Vector2(0.8, 0)
 motion_mirroring = Vector2(3840, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxFront/ParallaxBgAlgas"]
+modulate = Color(1, 1, 1, 0.643137)
 scale = Vector2(2, 2)
 texture = ExtResource("5_bscga")
 metadata/_edit_lock_ = true
