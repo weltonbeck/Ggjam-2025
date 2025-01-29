@@ -48,16 +48,16 @@ metadata/_edit_group_ = true
 
 [node name="Label" type="Label" parent="LevelMenu/LabelContainer"]
 layout_mode = 2
-text = "Tresures: "
+text = "Treasures: "
 label_settings = SubResource("LabelSettings_yfi3o")
 
-[node name="TresureCount" type="Label" parent="LevelMenu/LabelContainer"]
+[node name="TreasureCount" type="Label" parent="LevelMenu/LabelContainer"]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_yfi3o")
 horizontal_alignment = 1
 
-[node name="TotalTresures" type="Label" parent="LevelMenu/LabelContainer"]
+[node name="TotalTreasures" type="Label" parent="LevelMenu/LabelContainer"]
 layout_mode = 2
 text = "/ 1"
 label_settings = SubResource("LabelSettings_yfi3o")
